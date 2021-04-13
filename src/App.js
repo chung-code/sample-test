@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component, useState, useEffect} from 'react'
+import { render } from 'react-dom';
+import VerticalBar from './VerticalBar.jsx';
 
-function App() {
+// import useFetch from './useFetch.js';
+
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
+};
+
+const App = () => {
+
+  const [todos, setTodos] = useState([]);
+
+  const fetchInitialData = async() => {
+    const response = await fetch('http://localhost:5000/get'); //미리 만들어놓은 api 서버
+    const initialData = await response.json();
+    setTodos(initialData);
+  }
+
+  useEffect( () => {
+    fetchInitialData(); 
+  }, [])
+  
+  useEffect( () => {
+    console.log("새로운내용", todos);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles}>
+      <VerticalBar todos={todos} />
     </div>
-  );
+  )
 }
 
 export default App;
