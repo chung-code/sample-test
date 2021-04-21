@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 
@@ -23,7 +22,6 @@ import App from './views/App';
 import Tables from './views/examples/Tables';
 import VerticalBar from './views/examples/VerticalBar';
 import Home from './views/examples/Home';
-// import './index.css';
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -36,7 +34,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
 // argon 코드
+// import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
 // ReactDOM.render(
 //   <BrowserRouter>
 //     <Switch>
