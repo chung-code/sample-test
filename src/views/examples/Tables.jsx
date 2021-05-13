@@ -1,53 +1,49 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 
-import {
-  Card,
-  CardHeader,
-  Table,
-  Container,
-  Row
-} from "reactstrap";
+import { Card, CardHeader, Table, Container, Row } from "reactstrap";
 
 // import classnames from "classnames";
 
-
-const Tables = ( ) => {
-
+const Tables = () => {
   const [todos, setTodos] = useState([]);
   const [isError, setIsError] = useState(false);
 
-  useEffect( () => {
-  console.log('=== useEffect ===');
+  useEffect(() => {
+    console.log("=== useEffect ===");
 
-  const fetchInitialData = async() => {
-    setIsError(false);
-    try {
-      const response = await fetch('http://localhost:5000/get'); //미리 만들어놓은 api 서버
-      const initialData = await response.json();
-      setTodos(initialData);
-    }
-    catch (error) {
-    setIsError(true);
-    }
-  }
+    const fetchInitialData = async () => {
+      setIsError(false);
+      try {
+        const response = await fetch("http://localhost:5000/get"); //미리 만들어놓은 api 서버
+        const initialData = await response.json();
+        setTodos(initialData);
+      } catch (error) {
+        setIsError(true);
+      }
+    };
 
-    fetchInitialData(); 
-  }, [])
+    fetchInitialData();
+  }, []);
 
   let columns = ["ranking", "word", "frequency"];
   let data = [];
-  const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+  const range = (start, stop, step) =>
+    Array.from(
+      { length: (stop - start) / step + 1 },
+      (_, i) => start + i * step
+    );
 
-  if (todos.index){ //비동기처리 대박
+  if (todos.index) {
+    //비동기처리 대박
     let rankings = range(7, todos.index.length, 1);
-    let words = todos.index.slice(6,20);
-    let fres = todos.data.slice(6,20);
+    let words = todos.index.slice(6, 20);
+    let fres = todos.data.slice(6, 20);
 
-    for(var i = 0; i < words.length; i++) {
-      var dic = {ranking: rankings[i], word: words[i], fre: fres[i]};
-      (data.push(dic));
-    };
-  };
+    for (var i = 0; i < words.length; i++) {
+      var dic = { ranking: rankings[i], word: words[i], fre: fres[i] };
+      data.push(dic);
+    }
+  }
 
   return (
     <Container className="align-items-center" fluid>
@@ -62,7 +58,9 @@ const Tables = ( ) => {
               <thead className="thead-light">
                 <tr>
                   {columns.map((column) => (
-                    <th scope="col" key={column}>{column}</th>
+                    <th scope="col" key={column}>
+                      {column}
+                    </th>
                   ))}
                 </tr>
               </thead>
@@ -80,8 +78,7 @@ const Tables = ( ) => {
         </div>
       </Row>
     </Container>
-
-  )
-}
+  );
+};
 
 export default Tables;

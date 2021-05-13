@@ -13,7 +13,7 @@ const Header = ( ) => {
     return (
         <div>
             <div className="logo">
-                Nature Language
+                챗봇 관리자 페이지
             </div>
             <div className="menu">
                 <MenuItem to={'/'}>Home</MenuItem>
