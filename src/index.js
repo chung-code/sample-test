@@ -21,12 +21,12 @@ import "./assets/scss/argon-dashboard-react.scss";
 import App from './views/App';
 import Tables from './views/examples/Tables';
 import VerticalBar from './views/examples/VerticalBar';
-import Home from './views/examples/Home';
+import CRUD from './views/examples/CRUD';
 
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Home}/>
+      <IndexRoute component={CRUD}/>
       <Route path="table" component={Tables}/>
       <Route path="chart" component={VerticalBar}/>
     </Route>

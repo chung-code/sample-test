@@ -16,7 +16,7 @@ const Header = ( ) => {
                 챗봇 관리자 페이지
             </div>
             <div className="menu">
-                <MenuItem to={'/'}>Home</MenuItem>
+                <MenuItem to={'/'}>CRUD</MenuItem>
                 <MenuItem to={'/table'} >Table</MenuItem >
                 <MenuItem to={'/chart'} >Chart</MenuItem>
             </div>
