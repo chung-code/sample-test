@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-// import useFetch from '../useFetch.js';
 
 let data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -63,17 +62,6 @@ const VerticalBar = () => {
 
     fetchInitialData();
   }, []);
-
-  // let BarChart = <div>loading...</div>
-  // if(!loading) BarChart = () => {
-  //   data.labels = todos.index.slice(0,6);
-  //   data.datasets[0].label = '# of ' + todos.name;
-  //   data.datasets[0].data = todos.data.slice(0,6);
-
-  //   return(
-  //     <Bar data={data} options={options} />
-  //   )
-  // }
 
   if (todos.index) {
     //비동기처리 대박

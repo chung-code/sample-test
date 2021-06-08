@@ -19,16 +19,20 @@ import "./assets/scss/argon-dashboard-react.scss";
 // );
 
 import App from './views/App';
-import Tables from './views/examples/Tables';
-import VerticalBar from './views/examples/VerticalBar';
+// import Tables from './views/examples/Tables';
+// import VerticalBar from './views/examples/VerticalBar';
 import CRUD from './views/examples/CRUD';
+import Emotion from './views/examples/Emotion';
+import Freq from './views/examples/Freq';
 
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={CRUD}/>
-      <Route path="table" component={Tables}/>
-      <Route path="chart" component={VerticalBar}/>
+      {/* <Route path="table" component={Tables}/>
+      <Route path="chart" component={VerticalBar}/> */}
+      <Route path="freq" component={Freq}/>
+      <Route path="emotion" component={Emotion}/>
     </Route>
   </Router>,
   document.getElementById('root')

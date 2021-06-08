@@ -17,8 +17,10 @@ const Header = ( ) => {
             </div>
             <div className="menu">
                 <MenuItem to={'/'}>CRUD</MenuItem>
-                <MenuItem to={'/table'} >Table</MenuItem >
-                <MenuItem to={'/chart'} >Chart</MenuItem>
+                {/* <MenuItem to={'/table'} >Table</MenuItem >
+                <MenuItem to={'/chart'} >Chart</MenuItem> */}
+                <MenuItem to={'/freq'} >Frequency</MenuItem>               
+                <MenuItem to={'/emotion'} >Emotion</MenuItem>
             </div>
         </div>
     );
