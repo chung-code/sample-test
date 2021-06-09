@@ -32,6 +32,7 @@ function CRUD() {
 
   useEffect(
     () => {
+      // let url = 'http://localhost:8080/todo/list'
       let url = '/todo/list'
       axios.get(url).then(function(response){
         let inCat = response.data.map( todo => (todo.category) );
@@ -63,6 +64,7 @@ function CRUD() {
       };
       setTodos(todos.concat(todo));
       setId(id + 1);
+      // let url = 'http://localhost:8080/todo/write'
       let url = '/todo/write'
       axios.post(url, todo)
         .then(function (response) {
@@ -95,6 +97,7 @@ function CRUD() {
 
   const onSelect = useCallback(
     category => {
+      // let url = 'http://localhost:8080/todo/category'
       let url = '/todo/category'
       axios.get(url, {"params": category})
         .then((response) => {
@@ -111,6 +114,7 @@ function CRUD() {
   const onRemove = useCallback(
     id => {
       setTodos(todos.filter(todo => todo.id !== id));
+      // let url = 'http://localhost:8080/todo/remove'
       let url = '/todo/remove';
       axios.delete(url, { data: { id: id }, headers: { "Authorization": "***" } });
       // fetch(url, {

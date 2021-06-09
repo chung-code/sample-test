@@ -45,7 +45,7 @@ const Emotion = () => {
         getWordColor: word => word.pos > word.neg ? "blue" : "red",
         onWordClick: console.log,
         onWordMouseOver: console.log,
-        getWordTooltip: word => `${word.text} (${word.value}) [${word.value > 10 ? "good" : "bad"}]`,
+        getWordTooltip: word => `pos:[${word.pos}] neg:[${word.neg}] emotion:[${word.pos > word.neg ? "Positive" : "Negative"}]`,
     }
 
     const options = {

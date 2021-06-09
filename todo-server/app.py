@@ -24,14 +24,14 @@ def preprocessing():
 
 @app.route("/emotion")
 def emotion():
-    data = pd.read_csv("../data/searched_input_NOUN_emotion.txt", header=None, names=['Word', 'pos', 'neg'], sep="\t", encoding='utf-8')
+    data = pd.read_csv("../data/searched_input_NOUN_emotion.txt", header=None, names=['Word', 'pos', 'neg'], sep="\t", encoding='ansi')
     Word = set(data['Word'].dropna().tolist())
 
     list_emotion = []
     for i in Word:
         dic_emotion = {}
         count = len(data[(data['Word'] == i)])
-        pos = len(data[(data['Word'] == i) & (data['pos'] == 'pos-1')])
+        pos = len(data[(data['Word'] == i) & (data['pos'] == '긍정-1')])
         neg = count - pos
         
         dic_emotion['text'] = i
