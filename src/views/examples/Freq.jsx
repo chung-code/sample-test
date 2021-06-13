@@ -52,7 +52,7 @@ const Freq = () => {
     const fetchInitialData = async () => {
       setIsError(false);
       try {
-        const response = await fetch("http://localhost:5000/get"); //미리 만들어놓은 api 서버
+        const response = await fetch("http://localhost:5000/word"); //미리 만들어놓은 api 서버
         const initialData = await response.json();
         setTodos(initialData);
       } catch (error) {

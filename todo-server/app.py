@@ -8,14 +8,11 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-# data = pd.read_csv("./data/GPC.csv")
-# data
-
 @app.route("/")
 def home():
     return "hello"
 
-@app.route("/get")
+@app.route("/word")
 def preprocessing():
     data = pd.read_csv("../data/english_word.txt", delimiter="\n", header=None, names=['Word'])
     freq = data['Word'].value_counts()
@@ -43,6 +40,37 @@ def emotion():
     
     json_emotion = json.dumps(list_emotion)
     return json_emotion
+
+# @app.route("/good")
+# def good():
+#     data = pd.read_csv("../data/searched_input_NOUN_emotion_time.txt", header=None, names=['Time','Word', 'pos', 'neg'], sep="\t", encoding='ansi')
+#     Word = list(set(data['Word'].dropna().tolist()))
+#     dic_word = {}
+#     dic_word['word'] = Word
+#     json_word = json.dumps(dic_word)
+#     return json_word
+
+# @app.route("/time/<category>")
+# def time(category):
+#     data = pd.read_csv("../data/searched_input_NOUN_emotion_time.txt", header=None, names=['Time','Word', 'pos', 'neg'], sep="\t", encoding='ansi')
+
+#     matching = data['Word'] == category
+#     venezuela = data[matching]
+
+#     list_emotion = []
+#     for i in range(len(venezuela)):  
+#         time_emotion = {}
+#         time_emotion['Word'] = category
+#         time_emotion['Time'] = venezuela.iloc[i, 0]
+#         if venezuela.iloc[i, 2] == '긍정-1':
+#             time_emotion['emotion'] = 'pos'
+#         else:
+#             time_emotion['emotion'] = 'neg'
+        
+#         list_emotion.append(time_emotion)
+    
+#     json_emotion = json.dumps(list_emotion)
+#     return json_emotion
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='5000', threaded=True)

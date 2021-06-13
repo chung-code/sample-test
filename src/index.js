@@ -23,6 +23,7 @@ import App from './views/App';
 // import VerticalBar from './views/examples/VerticalBar';
 import CRUD from './views/examples/CRUD';
 import Emotion from './views/examples/Emotion';
+// import LineChart from './views/examples/LineChart';
 import Freq from './views/examples/Freq';
 
 ReactDOM.render(
@@ -33,6 +34,7 @@ ReactDOM.render(
       <Route path="chart" component={VerticalBar}/> */}
       <Route path="freq" component={Freq}/>
       <Route path="emotion" component={Emotion}/>
+      {/* <Route path="line" component={LineChart}/> */}
     </Route>
   </Router>,
   document.getElementById('root')
